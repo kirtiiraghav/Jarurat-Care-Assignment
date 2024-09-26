@@ -6,7 +6,7 @@ export default function DescriptionInput({ label, id }) {
             <label htmlFor={id}>{label}</label>
             <textarea
                 id={id}
-                className="border-[1px] border-black"
+                className="border-[1px] border-black px-1"
                 rows="4"
             />
         </div>
