@@ -1,8 +1,11 @@
-function App() {
+import ServiceForm from "./components/ServiceForm"
 
-  return (
-   <></>
-  )
+function App() {
+    return (
+        <>
+            <ServiceForm />
+        </>
+    )
 }
 
 export default App
