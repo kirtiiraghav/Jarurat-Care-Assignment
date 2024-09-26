@@ -9,7 +9,7 @@ function App() {
     return (
         <main>
             <div className="flex gap-8 flex-col md:flex-row p-4">
-                <ServiceForm />
+                <ServiceForm setServiceData={setServiceData} />
                 <ServiceListTable serviceData = {serviceData} />
             </div>
         </main>
