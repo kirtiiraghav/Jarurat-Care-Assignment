@@ -26,7 +26,7 @@ export default function ServiceForm({ setServiceData }) {
             <Input onChange={(e) => setName(e.target.value)} value={name} label='Service Name' id='name' name='name' />
             <DescriptionInput onChange={(e) => setDescription(e.target.value)} value={description} label='Description' id='desc' name='description' />
             <Input onChange={(e) => setPrice(e.target.value)} value={price} label='Price' id='price' name='price' />
-            <button onClick={handleSubmit} className='bg-gray-300 w-full rounded p-1 text-center'>Add</button>
+            <button onClick={handleSubmit} className='bg-black border text-white hover:text-black hover:border-black hover:bg-white w-full rounded p-1 text-center'>Add</button>
         </form>
     )
 }

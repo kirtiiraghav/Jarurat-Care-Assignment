@@ -8,7 +8,7 @@ function App() {
 
     return (
         <main>
-            <div className="flex gap-8 flex-col md:flex-row p-4">
+            <div className="flex justify-center items-center h-screen gap-8 flex-col md:flex-row p-4">
                 <ServiceForm setServiceData={setServiceData} />
                 <ServiceListTable serviceData = {serviceData} />
             </div>
