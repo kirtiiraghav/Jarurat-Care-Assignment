@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 import Input from './Input'
 import DescriptionInput from './DescriptionInput'
 
-export default function ServiceForm({ setServiceData }) {
-    const [service, setService] = useState({
-        name: '',
-        description: '',
-        price: ''
-    })
+export default function ServiceForm({ setServiceData, service, setService }) {
+    // const [service, setService] = useState({
+    //     name: '',
+    //     description: '',
+    //     price: ''
+    // })
 
     const [errors, setErrors] = useState({})
 

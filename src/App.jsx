@@ -7,11 +7,17 @@ import Header from "./components/Header.jsx"
 function App() {
     const [serviceData, setServiceData] = useState(data)
 
+    const [service, setService] = useState({
+        name: '',
+        description: '',
+        price: ''
+    })
+
     return (
         <>
             <Header />
             <div className="flex items-start h-[calc(100vh-82px)] sm:h-[calc(100vh-72px)] gap-8 flex-col lg:flex-row p-4">
-                <ServiceForm setServiceData={setServiceData} />
+                <ServiceForm service={service} setService={setService} setServiceData={setServiceData} />
                 <ServiceListTable setServiceData={setServiceData} serviceData={serviceData} />
             </div>
         </>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ServiceListTable({ serviceData }) {
+export default function ServiceListTable({ serviceData, setServiceData }) {
 
     return (
         <table className="w-full border-collapse mt-[17px]">
@@ -25,7 +25,13 @@ export default function ServiceListTable({ serviceData }) {
                         <td className='border-b border-black p-1'>
                             <div className='flex items-center justify-center gap-2'>
                                 <button className='bg-black text-white p-2 rounded hover:bg-white hover:text-black hover:border-black border my-2'>Edit</button>
-                                <button className=' hover:text-red-600'>Delete</button>
+                                <button onClick={() => {
+                                    const updatedItems = serviceData.filter(({id}) => {
+                                        return id !== data.id
+                                    })
+                                    setServiceData(updatedItems)
+                                }
+                                } className=' hover:text-red-600'>Delete</button>
                             </div>
                         </td>
                     </tr>
