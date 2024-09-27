@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Input from './Input'
 import DescriptionInput from './DescriptionInput'
 
-export default function ServiceForm({ setServiceData, service, setService }) {
+export default function ServiceForm({ setServiceData, service, setService, editRowId, setEditRowId }) {
     // const [service, setService] = useState({
     //     name: '',
     //     description: '',
@@ -24,13 +24,13 @@ export default function ServiceForm({ setServiceData, service, setService }) {
         const errorsData = {}
 
         Object.entries(form).forEach(([key, value]) => {
-            validationConfig[key].some((rule)=>{
-                if(rule.required && !value){
+            validationConfig[key].some((rule) => {
+                if (rule.required && !value) {
                     errorsData[key] = rule.message
                     return true
                 }
 
-                if(rule.numberPattern && !rule.numberPattern.test(value)){
+                if (rule.numberPattern && !rule.numberPattern.test(value)) {
                     errorsData[key] = rule.message
                 }
             })
@@ -45,6 +45,25 @@ export default function ServiceForm({ setServiceData, service, setService }) {
 
         const validateResult = validateForm(service)
         if (Object.keys(validateResult).length) {
+            return
+        }
+
+        //edit
+        if (editRowId) {
+            setServiceData((prevState) => {
+                return prevState.map((prevService) => {
+                    if (prevService.id === editRowId) {
+                        return { ...service, id: editRowId }
+                    }
+                    return prevService
+                })
+            })
+            setEditRowId('')
+            setService({
+                name: '',
+                description: '',
+                price: ''
+            })
             return
         }
 
@@ -69,7 +88,7 @@ export default function ServiceForm({ setServiceData, service, setService }) {
             <Input error={errors.name} onChange={handleChange} value={service.name} label='Service Name' id='name' name='name' />
             <DescriptionInput error={errors.description} onChange={handleChange} value={service.description} label='Description' id='desc' name='description' />
             <Input error={errors.price} onChange={handleChange} value={service.price} label='Price' id='price' name='price' />
-            <button className='bg-black border text-white hover:text-black hover:border-black hover:bg-white w-full rounded p-1 text-center'>Add</button>
+            <button className='bg-black border text-white hover:text-black hover:border-black hover:bg-white w-full rounded p-1 text-center'>{editRowId ? 'Save' : 'Add'}</button>
         </form>
     )
 }
