@@ -2,17 +2,19 @@ import { useState } from "react"
 import ServiceForm from "./components/ServiceForm"
 import ServiceListTable from "./components/ServiceListTable"
 import data from './serviceData.js'
+import Header from "./components/Header.jsx"
 
 function App() {
     const [serviceData, setServiceData] = useState(data)
 
     return (
-        <main>
-            <div className="flex justify-center items-center h-screen gap-8 flex-col md:flex-row p-4">
+        <>
+            <Header />
+            <div className="flex items-start h-[calc(100vh-82px)] sm:h-[calc(100vh-72px)] gap-8 flex-col lg:flex-row p-4">
                 <ServiceForm setServiceData={setServiceData} />
-                <ServiceListTable serviceData = {serviceData} />
+                <ServiceListTable setServiceData={setServiceData} serviceData={serviceData} />
             </div>
-        </main>
+        </>
     )
 }
 
