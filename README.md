@@ -9,6 +9,10 @@ This project is a practical demonstration of React's state management and compon
 - **React.js**
 - **Tailwind CSS**
 
+## 🌐 Live Demo
+Check out the live demo of the Health Care Manager project:
+[Live Demo Link](https://jarurat-care-assignment.netlify.app/)
+
 ## 🛠️ Features
 
 ### 1. Service List:
@@ -43,7 +47,7 @@ Ensure you have the following installed on your system:
 ### Cloning the Repository
 1. Clone the repository:
     ```bash
-    git clone [https://github.com/yourusername/health-care-manager.git](https://github.com/kirtiiraghav/Jarurat-Care-Assignment)
+    git clone https://github.com/kirtiiraghav/Jarurat-Care-Assignment
     ```
 2. Navigate to the project directory:
     ```bash
